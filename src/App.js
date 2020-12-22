@@ -20,7 +20,7 @@ componentDidMount() {
   render() {
     return (
       <div className="App">
-        <CardList people = {this.state.person} />    
+        <CardList person = {this.state.person} />    
       </div>
     );
   }
