@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
+
 import {CardList} from './components/card-list/card-list.components';
+import {SearchBox} from './components/search-box/search-box.component';
+
 import './App.css';
 
 class App extends Component {
@@ -7,7 +10,8 @@ class App extends Component {
     super();
 
     this.state = {
-      person:[ ]
+      person:[ ],
+      search: ' ' 
     }
   }
 
@@ -18,9 +22,19 @@ componentDidMount() {
 }
 
   render() {
+
+    const {person , search} = this.state;
+    const filter = person.filter(person => 
+      person.name.toLowerCase().includes(search.toLowerCase())
+    )
     return (
       <div className="App">
-        <CardList person = {this.state.person} />    
+     
+        <SearchBox 
+          placeholder = "type to find"  
+          handleChange ={e => this.setState({search : e.target.value})}
+        /> 
+        <CardList person = {filter} />    
       </div>
     );
   }
