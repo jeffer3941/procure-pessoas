@@ -13,13 +13,19 @@ class App extends Component {
       person:[ ],
       search: ' ' 
     }
+
+    this.handleChange = this.handleChange.bind(this);
   }
 
-componentDidMount() {
-  fetch('https://jsonplaceholder.typicode.com/users')
-  .then(response => response.json())
-  .then(users => this.setState({person: users}))
-}
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json())
+    .then(users => this.setState({person: users}))
+  }
+
+  handleChange = (e) => {
+    this.setState({search : e.target.value})
+  }
 
   render() {
 
@@ -29,10 +35,10 @@ componentDidMount() {
     )
     return (
       <div className="App">
-     
+        <h1 id="title">Search People</h1>
         <SearchBox 
           placeholder = "type to find"  
-          handleChange ={e => this.setState({search : e.target.value})}
+          handleChange ={this.handleChange}
         /> 
         <CardList person = {filter} />    
       </div>

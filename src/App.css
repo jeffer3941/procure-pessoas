@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+#title {
+  font-family: roboto;
+  font-size: 80px;
+  color: #2b2b2b;
+}

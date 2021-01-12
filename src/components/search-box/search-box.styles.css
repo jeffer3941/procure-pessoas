@@ -1,6 +1,6 @@
 .search {
   -webkit-appearance: none;
-  border: none;
+  border: 20px 10px 10px 20px;
   outline: none;
   padding: 10px;
   width: 150px;
